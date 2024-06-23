@@ -14,7 +14,7 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 export class UserComponent {
   // aUser = DUMMY_USERS[randomIndex];
   aUser = signal(DUMMY_USERS[randomIndex]);
-  imagePath = computed(() => 'assests/users/'+this.aUser().avatar);
+  imagePath = computed(() => 'assets/users/'+this.aUser().avatar);
   OnSelectUser() {
     const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
     this.aUser.set(DUMMY_USERS[randomIndex]);
