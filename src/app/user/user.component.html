@@ -1,0 +1,12 @@
+<div *ngIf="aUser">
+  <button (click)="OnSelectUser()">
+      <img
+          [src]="imagePath()"
+          [alt]="aUser().name"
+      />
+      <span>{{ aUser().name }}</span>
+</button>
+</div>
+<div *ngIf="!aUser">
+  <p>User not found</p>
+</div>
