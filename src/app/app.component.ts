@@ -4,6 +4,12 @@ import { UserComponent } from "./user/user.component";
 import { DUMMY_USERS } from './dummy-users';
 import { TasksComponent } from './tasks/tasks.component';
 import { CommonModule } from '@angular/common';
+
+type User = {
+    id: string,
+    name: string,
+    avatar: string,
+  };
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -12,10 +18,10 @@ import { CommonModule } from '@angular/common';
     imports: [CommonModule, HeaderComponent, UserComponent, TasksComponent]
 })
 export class AppComponent {
-    users = DUMMY_USERS.slice(0, 4);
+    users = DUMMY_USERS;
     selectedUserId = 'u1';
     get selectedUser() {
-        let user = this.users.slice(0, 2).find(user => user.id === this.selectedUserId);
+        let user = this.users.find(user => user.id === this.selectedUserId)!;
         return user;
     }
     onSelectUser(id: string) {  

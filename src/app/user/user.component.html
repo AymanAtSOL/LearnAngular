@@ -1,12 +1,12 @@
-<div *ngIf="name && avatar">
-  <button (click)="OnSelectUser(id)">
+<div *ngIf="user.name && user.avatar">
+  <button (click)="OnSelectUser(user.id)">
       <img
           [src]="imagePath"
-          [alt]="name"
+          [alt]="user.name"
       />
-      <span>{{ name }}</span>
+      <span>{{ user.name }}</span>
 </button>
 </div>
-<div *ngIf="!name ">
+<div *ngIf="!user.name ">
   <p>User name not found</p>
 </div>
