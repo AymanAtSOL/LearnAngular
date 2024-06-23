@@ -12,10 +12,13 @@ import { CommonModule } from '@angular/common';
     imports: [CommonModule, HeaderComponent, UserComponent, TasksComponent]
 })
 export class AppComponent {
-    users = DUMMY_USERS;
-    selectedUserName:string|undefined = '';
-    onSelectUser(id: string) {
-        this.selectedUserName = DUMMY_USERS.find(user => user.id==id)?.name
-        console.log("Selected User Id is: "+id);
+    users = DUMMY_USERS.slice(0, 4);
+    selectedUserId = 'u1';
+    get selectedUser() {
+        let user = this.users.slice(0, 2).find(user => user.id === this.selectedUserId);
+        return user;
+    }
+    onSelectUser(id: string) {  
+        this.selectedUserId = id;
     }
 }

@@ -22,8 +22,8 @@
       ></app-user>
     </li>
   </ul>
-  <div *ngIf="selectedUserName">
-    <app-tasks [name] = "selectedUserName" />
-  </div>
+  <!-- <div *ngIf="selectedUser"> -->
+    <app-tasks [name] = "selectedUser? selectedUser.name : 'user not found'" />
+  <!-- </div> -->
 </main>
   
