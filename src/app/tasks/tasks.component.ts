@@ -3,13 +3,14 @@ import { TaskComponent } from "./task/task.component";
 import {dummyTasks} from "./dummy-tasks";
 import { NewTaskComponent } from "./new-task/new-task.component";
 import {type Task, type NewTask} from './task/task.model'
+import { CardComponent } from "../shared/card/card.component";
 
 @Component({
     selector: 'app-tasks',
     standalone: true,
     templateUrl: './tasks.component.html',
     styleUrl: './tasks.component.css',
-    imports: [TaskComponent, NewTaskComponent]
+    imports: [TaskComponent, NewTaskComponent, CardComponent]
 })
 export class TasksComponent {
   @Input() name!: string;
