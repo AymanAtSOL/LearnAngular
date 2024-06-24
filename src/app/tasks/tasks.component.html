@@ -8,15 +8,11 @@
     </menu>
   </header>  
   <ul>
-    <li>
-      <app-task/>
-    </li>
-    <li>
-      <img src="../../assets/angular-logo.png" /> Do It and GG
-    </li>
-    <li>
-      <img src="../../assets/task-management-logo.png" /> Do It and GG
-    </li>
+    @for (item of selectedUserTasks; track item.id) {
+      <li>
+        <app-task [task]="item"/>
+      </li>
+    }
   </ul>
 </section>  
 

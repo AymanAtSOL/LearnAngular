@@ -51,16 +51,7 @@ ul {
   max-height: 50vh;
   overflow: auto;
 }
-li {
-  display: flex;
-  align-items: center; /* Align items vertically in the center */
-}
 
-li img {
-  width: 50px;
-  height: 50px;
-  margin-right: 1rem; /* Add some space between the image and the text */
-}
 @media (min-width: 768px) {
   h2 {
     font-size: 1.25rem;
