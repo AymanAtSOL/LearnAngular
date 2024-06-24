@@ -14,7 +14,7 @@ import { TasksService } from './tasks.service';
 })
 export class TasksComponent {
   @Input() name!: string;
-  @Input() id!: string;
+  @Input() userId!: string;
   
   private tasksService:TasksService
   constructor(tasksService: TasksService){
@@ -23,7 +23,7 @@ export class TasksComponent {
   // private tasksService = new TasksService(); // fresh instance not recommended for use in other components that might alter the data.
   isAddingTask = false;
   get selectedUserTasks () {
-    return this.tasksService.getUserTasks(this.id); // id is userId
+    return this.tasksService.getUserTasks(this.userId); // id is userId
   }
 
   onCompTask(id: string){
@@ -32,11 +32,7 @@ export class TasksComponent {
   onAddTask() {
     this.isAddingTask = true;
   }
-  onCancelAddTask() {
-    this.isAddingTask = false;
-  }
-  onAddTaskData(task:NewTask) {
-    // this.tasksService.addTask();
+  onCloseAddTask() {
     this.isAddingTask = false;
   }
 }
