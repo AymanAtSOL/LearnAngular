@@ -19,7 +19,7 @@ type User = {
 })
 export class AppComponent {
     users = DUMMY_USERS;
-    selectedUserId = 'u1';
+    selectedUserId? :string;
     get selectedUser() {
         let user = this.users.find(user => user.id === this.selectedUserId)!;
         return user;
