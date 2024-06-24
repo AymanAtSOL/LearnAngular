@@ -5,3 +5,4 @@ export type Task = {
   summary:string,
   dueDate:string
 }
+export type NewTask = {title:string, summary:string, date:string}
