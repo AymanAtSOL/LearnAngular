@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
-import {dummyTasks} from "./dummy-tasks";
 import { NewTaskComponent } from "./new-task/new-task.component";
 import {type Task, type NewTask} from './task/task.model'
 import { CardComponent } from "../shared/card/card.component";
+import { TasksService } from './tasks.service';
 
 @Component({
     selector: 'app-tasks',
@@ -15,14 +15,19 @@ import { CardComponent } from "../shared/card/card.component";
 export class TasksComponent {
   @Input() name!: string;
   @Input() id!: string;
-  tasks = dummyTasks;
+  
+  private tasksService:TasksService
+  constructor(tasksService: TasksService){
+    this.tasksService = tasksService;
+  }
+  // private tasksService = new TasksService(); // fresh instance not recommended for use in other components that might alter the data.
   isAddingTask = false;
   get selectedUserTasks () {
-    return this.tasks.filter(task => task.userId === this.id); // id is userId
+    return this.tasksService.getUserTasks(this.id); // id is userId
   }
 
   onCompTask(id: string){
-    this.tasks = this.tasks.filter(task => task.id !== id)
+    // this.tasks = this.tasks.filter(task => task.id !== id)
   }
   onAddTask() {
     this.isAddingTask = true;
@@ -31,13 +36,7 @@ export class TasksComponent {
     this.isAddingTask = false;
   }
   onAddTaskData(task:NewTask) {
-    this.tasks.push({
-      id: new Date().getTime().toString(),
-      userId: this.id,
-      title: task.title,
-      summary: task.summary,
-      dueDate: task.date,
-    });
+    // this.tasksService.addTask();
     this.isAddingTask = false;
   }
 }
