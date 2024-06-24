@@ -13,6 +13,7 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 })
 export class UserComponent {
   @Input({required: true}) user!: User;
+  @Input({required: true}) selected!: boolean;
   @Output() selehct = new EventEmitter();
   select = output<string>(); // does the same thing and is used in the same way, but it is shorter and no decorator
   // input signals are READ-ONLY

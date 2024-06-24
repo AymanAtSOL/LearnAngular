@@ -1,5 +1,5 @@
 <div *ngIf="user.name && user.avatar">
-  <button (click)="OnSelectUser(user.id)">
+  <button [class.active]="selected" (click)="OnSelectUser(user.id)">
       <img
           [src]="imagePath"
           [alt]="user.name"
