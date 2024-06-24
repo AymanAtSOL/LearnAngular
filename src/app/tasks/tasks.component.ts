@@ -26,9 +26,9 @@ export class TasksComponent {
     return this.tasksService.getUserTasks(this.userId); // id is userId
   }
 
-  onCompTask(id: string){
-    // this.tasks = this.tasks.filter(task => task.id !== id)
-  }
+  // onCompTask(id: string){
+  //   this.tasks = this.tasks.filter(task => task.id !== id)
+  // }
   onAddTask() {
     this.isAddingTask = true;
   }
