@@ -6,8 +6,8 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
 @Component({
   selector: 'app-user',
-  standalone: true,
-  imports: [CommonModule],
+  // standalone: true,
+  // imports: [CommonModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
